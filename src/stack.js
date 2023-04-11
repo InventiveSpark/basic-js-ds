@@ -10,22 +10,32 @@ const { NotImplementedError } = require('../extensions/index.js');
  * stack.peek(); // returns the peek, but doesn't delete it, returns 1
  * stack.pop(); // returns the top element from stack and deletes it, returns 1
  * stack.pop(); // undefined
- *
+  Stack follows the principle of LIFO (Last In First Out):
+    1st el.  pop (remove) / peek (doesn't
+      |       ^                    remove)
+      v       |
+    ┌───┬───┬───┬───┐
+    | 1 | 2 | 3 |   |
+    └───┴───┴───┴───┘
+                  ^
+                  |
+                push (add)
  */
 class Stack {
-  push(/* element */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  constructor() {
+    this.stack = new Array(); // Create an empty array, []
+  }
+
+  push(element) {
+    this.stack.push(element);
   }
 
   pop() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.stack.pop();
   }
 
   peek() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.stack[this.stack.length - 1];
   }
 }
 
